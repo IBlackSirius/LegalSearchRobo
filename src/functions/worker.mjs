@@ -13,8 +13,8 @@ const workerJob = async () => {
 
   try {
     parentPort.postMessage(`Iniciando a Busca do Serviço ${name}`);
-    await prepareToSearch(page, name)    
-    page.close()    
+    await prepareToSearch(page, name)
+    await page.close()
     parentPort.postMessage('Done')
   } catch (error) {
     console.log(`Error no Worker ${name} :>> `, error);
